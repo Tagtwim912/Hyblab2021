@@ -86,7 +86,9 @@ class AcceuilCarte extends  React.Component {
     };
 
     generatePerimetre = () => {
-        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${this.state.moyenId}/${this.state.currentPosition}/`)
+        // traduction id -> string de moyen de transport pour l'API
+        let moyenTransport = ['foot-walking', 'foot-walking', 'cycling-regular', 'wheelchair', 'cycling-road', 'cycling-regular', 'cycling-regular'][this.state.moyenId];
+        fetch(`http://localhost:8080/proximite-a/api/get15minzone/${moyenTransport}/${this.state.currentPosition}/`)
         .then(perimetre => {
             this.setState({perimetre});
         })
