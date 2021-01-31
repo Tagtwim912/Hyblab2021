@@ -5,7 +5,7 @@ import '../css/theme.css'
 import equivalent from './equivalent.js'
 class Theme extends  React.Component {
     state={
-        themeId: null,
+        themeId: 0,
     }
 
     handleChange = (e) => {
@@ -28,7 +28,9 @@ class Theme extends  React.Component {
                     <div className="d-flex btn btnNavigationAttributPurple fa fa-arrow-left" onClick={onPreviousPage}/>
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <ThemeSelector onNextPage={onNextPage} updateSelect={this.handleChange}/>
-                        <span>Qu'est-ce-qui vous intéresserait aujourd'hui ?</span>
+                        <div id="txttheme">
+                            {this.state.themeId?equivalent.themetxt.get(this.state.themeId):"Qu'est-ce-qui vous intéresserait aujourd'hui ?"}
+                        </div>
                         <input type='button' class="btn btnValidatePurpleBackground mb-3" value='VALIDER' onClick={() => { this.submitTheme(onSetTheme,onNextPage)}} disabled={!this.state.themeId}/>
                     </div>
                     <button className="d-flex btn btnNavigationAttributPurple fa fa-arrow-right" onClick={() => {this.submitTheme(onSetTheme, onNextPage)}} disabled={!this.state.themeId}/>
@@ -39,3 +41,4 @@ class Theme extends  React.Component {
 }
 
 export default Theme;
+

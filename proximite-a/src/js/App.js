@@ -20,13 +20,13 @@ class App extends  React.Component {
             ville: ''
         },
         sites: [{ id: '1',
-            titre: 'squalala',
-            img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg',
-            adresse: 'nous sommes partis',
-            description : "blabla",
-            coordonnes:[1,2],    //latitude_longitude
-            type:4,
-        },
+                titre: 'squalala',
+                img: 'https://pbs.twimg.com/profile_images/743774363833503744/-eSLwh6f_400x400.jpg',
+                adresse: 'nous sommes partis',
+                description : "blabla",
+                coordonnes:[1,2],    //latitude_longitude
+                type:4,
+             },
             { id: '2',
                 titre: 'squelele',
                 img: 'https://media.tenor.com/images/1c500d0d30c039aef2cc1056a0f4e8e6/tenor.gif',
@@ -43,13 +43,13 @@ class App extends  React.Component {
                 coordonnes:[5,6],    //latitude_longitude
                 type:2,
             }],
-        surprise: {
-            titre: 'Oooo di',
-            img: 'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
-            adresse: 'AAAAAAAAAAAAAHH',
-            description: "blabla",
-            coordonnes: [5, 6],    //latitude_longitude
-            type: 3
+            surprise: {
+                titre: 'Oooo di',
+                img: 'https://media.tenor.com/images/5c58bbed210c8bb91dddb88caa8f1ed3/tenor.gif',
+                adresse: 'AAAAAAAAAAAAAHH',
+                description: "blabla",
+                coordonnes: [5, 6],    //latitude_longitude
+                type: 3
         }
     };
 
@@ -104,25 +104,17 @@ class App extends  React.Component {
         let theme=equivalent.themeEquiv.get(this.state.themeId)
         console.log("appel de "+'http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme);
         let lieux = await( await fetch('http://localhost:8080/proximite-a/api/getlocationsforprofile/' + stringAdresse+'/'+moyen+'/'+theme)).json();
+        let newSites=[]
         console.log(lieux)
-        console.log(lieux.lieux.lenght)
-        console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/`);
-        let site1 = {
-            id: '1',
-            titre: '',
-            img: '',
-            adresse: '',
-            description: "",
-            coordonnes: [1, 2],    //latitude_longitude
-            type: 4,
-        }
-        if(lieux.lieux.lenght>=1&&lieux.lenght>=1){
+        console.log(lieux.lieux[0])
+        console.log("appel de " + `http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`);
+        if(lieux.lieux.lenght>=1){
             let adresse1 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[0].lat}_${lieux.lieux[0].lon}`)).json();
             let name1 = ""
-            if (typeof lieux.lieux[0].tags.name !== "undefined") {
+            if (lieux.lieux[0].tags.name) {
                 name1 = lieux.lieux[0].tags.name
             }
-            site1 = {
+            let site1 = {
                 id: '1',
                 titre: name1,
                 img: '',
@@ -131,23 +123,14 @@ class App extends  React.Component {
                 coordonnes: [lieux.lieux[0].lat, lieux.lieux[0].lon],
                 type: this.state.themeId
             };
-
-        }
-        let site2 = {
-            id: '2',
-            titre: '',
-            img: '',
-            adresse: '',
-            description: "",
-            coordonnes: [3, 4],    //latitude_longitude
-            type: 4,
-        }
-        if (lieux.lieux.lenght >= 2 && lieux.lenght >= 1){let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
+            newSites.push(site1)
+    }
+        if (lieux.lieux.lenght>=2){let adresse2 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[1].lat}_${lieux.lieux[1].lon}`)).json();
             let name2 = ""
-            if (typeof lieux.lieux[1].tags.name !== "undefined") {
+            if (lieux.lieux[1].tags.name) {
                 name2 = lieux.lieux[1].tags.name
             }
-            site2 = {
+            let site2 = {
                 id: '2',
                 titre: name2,
                 img: '',
@@ -156,23 +139,14 @@ class App extends  React.Component {
                 coordonnes: [lieux.lieux[1].lat, lieux.lieux[1].lon],
                 type: this.state.themeId
             }
-
-        }
-        let site3 = {
-            id: '',
-            titre: '',
-            img: '',
-            adresse: '',
-            description: "",
-            coordonnes: [5, 6],    //latitude_longitude
-            type: 4,
-        }
-        if (lieux.lieux.lenght >= 3 && lieux.lenght >= 1) {let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
+            newSites.push(site2)
+    }
+        if (lieux.lieux.lenght >= 3) {let adresse3 = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.lieux[2].lat}_${lieux.lieux[2].lon}`)).json();
             let name3 = ""
-            if (typeof lieux.lieux[0].tags.name !== "undefined") {
+            if (lieux.lieux[2].tags.name) {
                 name3 = lieux.lieux[2].tags.name
             }
-            site3 = {
+            let site3 = {
                 id: '3',
                 titre: name3,
                 img: '',
@@ -181,16 +155,16 @@ class App extends  React.Component {
                 coordonnes: [lieux.lieux[2].lat, lieux.lieux[2].lon],
                 type: this.state.themeId
             }
-
-        }
+            newSites.push(site3)
+    }
         let lieuSurprise = this.state.surprise
-        if (lieux.lenght > 1){let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
+        if (lieux.surprise.lenght>=1){let adresseSurp = await (await fetch(`http://localhost:8080/proximite-a/api/coordinates/${lieux.surprise.lat}_${lieux.surprise.lon}`)).json();
             console.log(adresseSurp)
             let nameSurp = ""
             if (lieux.surprise.tags.name) {
                 nameSurp = lieux.surprise.tags.name
             }
-            lieuSurprise = {
+            let lieuSurprise = {
                 titre: nameSurp,
                 img: '',
                 adresse: adresseSurp,
@@ -201,11 +175,11 @@ class App extends  React.Component {
         }
 
         this.setState({
-            sites: [site1,site2,site3],
+            sites: newSites,
             surprise:lieuSurprise
         });
         console.log("nouveaux sites")
-        console.log([site1, site2, site3])
+        console.log(newSites)
         this.setState({pageId:4})
     }
 

@@ -4,18 +4,28 @@ import '../css/creditPage.css'
 /*Images Logos*/
 import logo from '../img/LOGO OK_logo principal.png'
 import logohyblab from '../img/logo_hyblab.png'
-import logoMedialab from '../img/LogoOML-300x101 1.png'
+import logoMedialab from '../img/LogoOML-300x101.png'
 import logoPolytech from '../img/logopolytech.png'
 import logoOpen from '../img/logoopensource.png'
-import logoUniv from '../img/logouniversitenantes.png'
-import logoCC from '../img/logoCC 1.png'
-import logoScience from '../img/logoaudenciasciencescom 1.png'
-import logoAgr from '../img/logo_agr_nantes_rennes_retina 1.png'
+import logoUniv from '../img/logouniversitenantes.jpg'
+import logoCC from '../img/logoCC.png'
+import logoScience from '../img/logoaudenciasciencescom.jpg'
+import logoAgr from '../img/logo_agr_nantes_rennes_retina.png'
 import { useState } from 'react'
 
 class CereditPage extends React.Component {
     render() {
         return (
+
+            <div class="dimention">
+
+                <div class="cadrcredit">
+                    <input id="exitposition" value="X" type='button' />
+                    <img id="logoposition" src={logo} alt="logo" />
+                    <p id="textposition"> Pellentesque sed dui ut augue blandit sodales. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam sodales hendrerit.</p>
+                    <br /><br /><br />
+                    <div class="logosposition">
+
 
                         <div id="creditContainer" class="d-flex justify-content-end justify-content-end">
                             <div id="rightPartCredit" class="d-flex justify-content-center">
@@ -40,13 +50,12 @@ class CereditPage extends React.Component {
                                         <img id="logoEcole" src={logoPolytech} width={84} height={53} />
                                         <img id="logoEcole" src={logoScience} width={213} height={68} />
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div>
-
+                    </div>
+                </div>
+            </div>
         )
     };
 }

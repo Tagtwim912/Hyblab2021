@@ -7,7 +7,6 @@ import curieux_img from '../img/Perso-hyblab-05.png'
 import famille_img from '../img/Perso-hyblab-06.png'
 import '../css/theme.css'
 import equivalent from './equivalent.js'
-
 class ThemeSelector extends React.Component {
     render() {
         const { onNextPage, onPreviousPage } = this.props;

@@ -1,4 +1,81 @@
+.dimention{
+    width: 96vw;
+    height: 90vh;
+}
 
+#logoposition{
+    position: relative;
+    left: 40%;
+    right: 10%;
+    top: 7%;
+    bottom: 29.54%;
+    width: 200px;
+    height: 123px;
+
+}
+
+.cadrcredit{
+    position: absolute;
+    width: 60vw;
+    height: 94vh;
+    left: 38vw;
+    top: 27px;
+    bottom: 50px;
+
+    background: #FFFFFF;
+    border: 1px solid #756EFF;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 54px;
+}
+
+#exitposition{
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    left: 55vw;
+    top: 44px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    text-align: center;
+    border: #756EFF;
+
+    background: #756EFF;
+}
+
+#textposition{
+    position: absolute;
+    width: 521px;
+    height: 102px;
+    left: 13vw;
+    right: 50%;
+    top: 30vh;
+
+    font-family: Red Hat Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+
+    color: #000000;
+
+}
+
+#logohyblab{
+    position: absolute;
+    width: 4px;
+    height: 4px;
+
+}
+
+
+
+
+.dimention {
+    width: 96vw;
+    height: 90vh;
+}
 @import url("//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css");
 
 #creditContainer{
@@ -6,6 +83,15 @@
     height: 100%;
 }
 
+#logoposition {
+    position: relative;
+    left: 40%;
+    right: 10%;
+    top: 7%;
+    bottom: 29.54%;
+    width: 200px;
+    height: 123px;
+}
 @media screen and (max-width: 1150px)
 {
     #creditContainer{
@@ -15,6 +101,16 @@
     #rightPartCredit{
         width: 100% !important;
     }
+
+}
+
+.cadrcredit {
+    position: absolute;
+    width: 60vw;
+    height: 94vh;
+    left: 38vw;
+    top: 27px;
+    bottom: 50px;
 }
 
 /*Right Part*/
@@ -36,6 +132,18 @@
     border-radius: 54px;
 }
 
+#exitposition {
+    position: absolute;
+    width: 37px;
+    height: 37px;
+    left: 55vw;
+    top: 44px;
+    border-radius: 50%;
+    color: #FFFFFF;
+    text-align: center;
+    border: #756EFF;
+    background: #756EFF;
+}
 #rightPartCreditCenter{
     display: flex;
     justify-content: center;
@@ -43,13 +151,27 @@
     flex-direction: column;
 }
 
+#textposition {
+    position: absolute;
+    width: 521px;
+    height: 102px;
+    left: 13vw;
+    right: 50%;
+    top: 30vh;
+
+    font-family: Red Hat Text;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 19px;
+}
 #paragrapheCredit{
     max-width: 520px;
     text-align: center;
-
     color: #000000;
 }
 
+#logohyblab{}
 #closeButton{
     position: absolute;
     width: 4px;
@@ -62,6 +184,7 @@
     margin-top: 20px;
     background-color: #756EFF;
     right: 45px;
+
 }
 
 #logoEcole{
