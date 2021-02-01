@@ -55,7 +55,7 @@ themePicto.set(4, require('../img/pictogrammes_culture.png'));
 themePicto.set(5, require('../img/pictogrammes_famille.png'));
 
 var themetxt = new Map();
-themetxt.set(0, "Qu'est-ce-qui t'intéresserait aujourd'hui ?");
+themetxt.set(0, "Qu'est-ce-qui vous intéresserait aujourd'hui ?");
 themetxt.set(1, "Fast Food, bars, boîtes...");
 themetxt.set(2, "Salle de sport, stade, piscine...");
 themetxt.set(3, "Restaurant, Pâtisseries...");

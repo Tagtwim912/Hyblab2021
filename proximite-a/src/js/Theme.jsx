@@ -29,7 +29,7 @@ class Theme extends  React.Component {
                     <div class="d-flex flex-column justify-content-center align-items-center ">
                         <ThemeSelector onNextPage={onNextPage} updateSelect={this.handleChange}/>
                         <div id="txttheme">
-                            {this.state.themeId?equivalent.themetxt.get(this.state.themeId):"Qu'est-ce-qui t'intéresserait aujourd'hui ?"}
+                            {this.state.themeId?equivalent.themetxt.get(this.state.themeId):"Qu'est-ce-qui vous intéresserait aujourd'hui ?"}
                         </div>
                         <input type='button' class="btn btnValidatePurpleBackground mb-3" value='VALIDER' onClick={() => { this.submitTheme(onSetTheme,onNextPage)}} disabled={!this.state.themeId}/>
                     </div>
